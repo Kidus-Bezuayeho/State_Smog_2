@@ -1,0 +1,93 @@
+/* ========= Services Page ========= */
+
+/* Grid for service cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+}
+
+/* Service card */
+.service-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    background: #fff;
+    transition: all 0.2s ease;
+    align-items: flex-start;
+}
+
+.service-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.service-card i {
+    font-size: 1.25rem;
+    color: #007bff;
+    margin-top: 4px;
+}
+
+/* Titles inside service cards */
+.service-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Paragraphs inside cards */
+.service-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* ========= Why Choose Us Section ========= */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.features-list i {
+    margin-right: 8px;
+    color: #16a34a; /* green check */
+    font-size: 1rem;
+}
+
+/* ========= Schedule CTA ========= */
+#schedule p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+#schedule .schedule-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.9rem 1.4rem;
+    background-color: #2c2c2c;
+    color: white;
+    font-size: 0.95;
+}

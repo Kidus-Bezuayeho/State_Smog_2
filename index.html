@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Smog 2 - Vehicle Emissions Testing</title>
+    <link rel="stylesheet" href="styling/index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .service-card {
+            display: flex;
+            gap: 16px;
+            padding: 18px;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+            justify-items: start;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .features-list i {
+            margin-right: 8px;
+            color: #16a34a;
+        }
+
+        /* Contact Section Styles */
+        .contact-layout {
+            display: flex;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        .contact-card h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .contact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-list i {
+            color: #007bff;
+            width: 20px;
+        }
+
+        .contact-list a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .contact-list a:hover {
+            color: #007bff;
+        }
+
+        .inline-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-dark {
+            background-color: #333;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background-color: #222;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-outline:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .map-wrap {
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .inline-cta {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">State Smog 2</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(310) 482-3319</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@emissiontest.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="hours">
+                        <div>Mon-Sat 9 A.M to 5 P.M</div>
+                        <div>Sun 10 A.M - 4 P.M</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout Container -->
+    <div class="layout-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>State Smog 2</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About Us</span>
+                </a>
+                <a href="#" class="nav-item" data-section="services">
+                    <i class="fas fa-wrench"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#" class="nav-item" data-section="contact">
+                    <i class="fas fa-phone"></i>
+                    <span>Contact Us</span>
+                </a>
+            </nav>
+            <div class="cta-button">
+                <a href="https://my-schedule.timetrade.com/app/td-310830/workflows/tzw2m/schedule/welcome?wfsid=86m09rv7u84emlrapdo1u4j9hp9oitii&view=full&fs=1"
+                    class="schedule-btn" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-calendar-alt"></i>
+                    <div>
+                        <div>Schedule Your</div>
+                        <div>Appointment</div>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Container -->
+        <div class="main-container">
+            <main class="main-content">
+                <!-- About Us Section -->
+                <div id="about-section" class="content-section active">
+                    <div class="content-wrapper">
+                        <div class="text-content">
+                            <h1>Your Trusted Partner for Vehicle Emissions</h1>
+
+                            <div class="description">
+                                <p>At State Smog 2, we provide fast, reliable, and accurate vehicle emission testing
+                                    services. Our certified technicians use state-of-the-art equipment to ensure your
+                                    vehicle meets all environmental standards, helping you stay compliant and contribute
+                                    to a cleaner environment.</p>
+                            </div>
+
+                            <div class="description">
+                                <p>We understand that your time is valuable. That's why we strive to make the testing
+                                    process as quick and convenient as possible. With our efficient service, you'll be
+                                    back on the road in no time, with peace of mind knowing your vehicle is running
+                                    cleanly.</p>
+                            </div>
+
+                            <div class="description">
+                                <p>Whether you need a routine inspection or are preparing for vehicle registration, our
+                                    friendly staff is here to assist you. We offer competitive pricing and a commitment
+                                    to customer satisfaction. Visit us today or schedule your appointment online!</p>
+                            </div>
+                        </div>
+
+                        <div class="map-container">
+                            <!-- Google Maps Embed for State Smog 2 location -->
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.828234567891!2d-118.4123456789012!3d33.9876543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c123456789ab%3A0x123456789abcdef0!2s12630%20Washington%20Pl%2C%20Los%20Angeles%2C%20CA%2090066%2C%20USA!5e0!3m2!1sen!2sus!4v1703625000000!5m2!1sen!2sus"
+                                class="map-embed" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="State Smog 2 Location - 12630 Washington Pl, Los Angeles, CA 90066">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div id="services-section" class="content-section">
+                    <section class="text-content" style="text-align:center; margin-bottom:2rem;">
+                        <h1>Our Smog Check Services</h1>
+                        <p class="description" style="max-width:800px; margin:0 auto;">
+                            State Smog 2 offers comprehensive and reliable smog check services to ensure your vehicle
+                            meets California's
+                            emission standards. Our certified technicians provide quick and efficient testing, getting
+                            you back on the road
+                            safely and legally.
+                        </p>
+                    </section>
+
+                    <!-- Services grid -->
+                    <section class="services-grid" aria-label="Service cards">
+                        <!-- Card 1 -->
+                        <article class="service-card">
+                            <div
+                                style="flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; width: 32px;">
+                                <i class="fas fa-certificate" aria-hidden="true"
+                                    style="color: #007bff; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h3>STAR Certified Smog Checks</h3>
+                                <p>We are a STAR Certified station, authorized to perform all types of smog checks,
+                                    including those for vehicles requiring STAR certification.</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="service-card">
+                            <div
+                                style="flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; width: 32px;">
+                                <i class="fas fa-gauge" aria-hidden="true"
+                                    style="color: #007bff; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Regular Smog Checks</h3>
+                                <p>Get your biennial smog check done quickly and accurately. We test all makes and
+                                    models, ensuring compliance with state regulations.</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="service-card">
+                            <div
+                                style="flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; width: 32px;">
+                                <i class="fas fa-triangle-exclamation" aria-hidden="true"
+                                    style="color: #007bff; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Gross Polluter Certification</h3>
+                                <p>If your vehicle has been designated a gross polluter, we can perform the necessary
+                                    re-tests after repairs to help you clear the citation.</p>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="service-card">
+                            <div
+                                style="flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; width: 32px;">
+                                <i class="fas fa-truck" aria-hidden="true"
+                                    style="color: #007bff; font-size: 1.2rem;"></i>
+                            </div>
+                            <div>
+                                <h3>Diesel Smog Checks</h3>
+                                <p>Specialized smog testing for diesel vehicles, ensuring they meet the specific
+                                    emission requirements for diesel engines.</p>
+                            </div>
+                        </article>
+                    </section>
+
+                    <!-- Why choose us -->
+                    <section style="max-width: 720px; margin: 0 auto 2.25rem; text-align: center;">
+                        <h2 style="font-size: 1.5rem; color: #333; margin-bottom: 1.5rem;">Why Choose State Smog 2?</h2>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i>Certified and Experienced Technicians</li>
+                            <li><i class="fas fa-check-circle"></i>Fast and Efficient Service</li>
+                            <li><i class="fas fa-check-circle"></i>Competitive Pricing</li>
+                            <li><i class="fas fa-check-circle"></i>Comfortable Waiting Area</li>
+                            <li><i class="fas fa-check-circle"></i>Convenient Location</li>
+                        </ul>
+                    </section>
+
+                    <!-- CTA -->
+                    <section id="schedule" style="text-align: center; margin-bottom: 1.5rem;">
+                        <p class="description" style="max-width: 720px; margin: 0 auto 1rem;">
+                            Ready to get your vehicle smog checked? Schedule your appointment today!
+                        </p>
+                        <a href="https://my-schedule.timetrade.com/app/td-310830/workflows/tzw2m/schedule/welcome?wfsid=86m09rv7u84emlrapdo1u4j9hp9oitii&view=full&fs=1"
+                            class="schedule-btn"
+                            style="display: inline-flex; width: auto; align-items: center; gap: 10px;" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Schedule Appointment</span>
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Contact Section -->
+                <div id="contact-section" class="content-section">
+                    <section class="text-content" style="text-align:center;margin-bottom:2rem;">
+                        <h1>Contact State Smog 2</h1>
+                        <p class="description" style="max-width:800px;margin:0 auto;">
+                            Questions or ready to book? Call, email, or visit us—our team replies quickly during
+                            business hours.
+                        </p>
+                    </section>
+
+                    <section class="contact-layout" aria-label="Contact options">
+                        <!-- Talk to Us Only -->
+                        <div class="contact-card">
+                            <h2>Talk to Us</h2>
+                            <ul class="contact-list">
+                                <li><i class="fas fa-phone"></i> <a href="tel:+13104823319">(310) 482-3319</a></li>
+                                <li><i class="fas fa-envelope"></i> <a
+                                        href="mailto:info@emissiontest.com">info@emissiontest.com</a></li>
+                                <li><i class="fas fa-location-dot"></i> <a
+                                        href="https://maps.google.com/?q=12630+Washington+Pl,+Los+Angeles,+CA"
+                                        target="_blank" rel="noopener">12630 Washington Pl, Los Angeles, CA</a></li>
+                                <li><i class="fas fa-clock"></i> Mon–Sat 9:00 AM – 5:00 PM · Sun 10:00 AM – 4:00 PM</li>
+                            </ul>
+
+                            <div class="inline-cta">
+                                <a class="btn btn-dark" href="tel:+13104823319"><i class="fas fa-phone"></i> Call
+                                    Now</a>
+                                <a class="btn btn-primary" href="mailto:info@emissiontest.com"><i
+                                        class="fas fa-envelope"></i> Send Email</a>
+                                <a class="btn btn-outline"
+                                    href="https://my-schedule.timetrade.com/app/td-310830/workflows/tzw2m/schedule/welcome?wfsid=86m09rv7u84emlrapdo1u4j9hp9oitii&view=full&fs=1"
+                                    target="_blank" rel="noopener noreferrer"><i class="fas fa-calendar-alt"></i>
+                                    Schedule Appointment</a>
+                            </div>
+
+                            <div class="map-wrap">
+                                <iframe title="Google Maps location of State Smog 2" class="map-embed"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.828234567891!2d-118.4123456789012!3d33.9876543210987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c123456789ab%3A0x123456789abcdef0!2s12630%20Washington%20Pl%2C%20Los%20Angeles%2C%20CA%2090066%2C%20USA!5e0!3m2!1sen!2sus!4v1703625000000!5m2!1sen!2sus"
+                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div style="margin-left: auto;">
+                <p>&copy; 2024 State Smog 2. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle section switching
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.nav-item[data-section]');
+            const sections = document.querySelectorAll('.content-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetSection = this.getAttribute('data-section');
+
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+
+                    // Add active class to clicked nav item
+                    this.classList.add('active');
+
+                    // Hide all sections
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // Show target section
+                    const targetElement = document.getElementById(targetSection + '-section');
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
