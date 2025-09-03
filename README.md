@@ -25,16 +25,6 @@ State Smog 2 is a California-licensed vehicle emission test specialist located i
 - Embedded map for location
 - Responsive design for mobile and desktop
 
-## Getting Started
-
-1. Clone the repository:
-
-   ```sh
-   git clone https://github.com/Kidus-Bezuayeho/State_Smog_2.git
-   ```
-   
-2. Open the project folder.
-3. Open `index.html` in your browser to view the site.
 
 
 ## License
