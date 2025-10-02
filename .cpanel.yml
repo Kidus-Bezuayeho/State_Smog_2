@@ -1,0 +1,21 @@
+---
+deployment:
+  tasks:
+    # Load environment variables from .env file
+    - export $(cat .env | xargs)
+    
+    # Set your deployment path using the USERNAME from .env
+    - export DEPLOYPATH=/home/$USERNAME/public_html/
+    
+    # Deploy HTML files
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp services.html $DEPLOYPATH
+    
+    # Deploy styling directory
+    - /bin/cp -R styling $DEPLOYPATH
+    
+    # Optional: Set permissions (uncomment if needed)
+    # - /bin/chmod 644 $DEPLOYPATH/*.html
+    # - /bin/chmod 644 $DEPLOYPATH/styling/*.css
