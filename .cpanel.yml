@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    # Set your deployment path (replace 'yourusername' with your actual cPanel username)
+    - export DEPLOYPATH=/home/states15/public_html/
+    
+    # Deploy HTML files
+    - /bin/cp about.html $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp services.html $DEPLOYPATH
+    
+    # Deploy styling directory
+    - /bin/cp -R styling $DEPLOYPATH
+    
+    # Optional: Set permissions (uncomment if needed)
+    # - /bin/chmod 644 $DEPLOYPATH/*.html
+    # - /bin/chmod 644 $DEPLOYPATH/styling/*.css
