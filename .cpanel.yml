@@ -1,8 +1,11 @@
 ---
 deployment:
   tasks:
-    # Set your deployment path (replace 'yourusername' with your actual cPanel username)
-    - export DEPLOYPATH=/home/states15/public_html/
+    # Load environment variables from .env file
+    - export $(cat .env | xargs)
+    
+    # Set your deployment path using the USERNAME from .env
+    - export DEPLOYPATH=/home/$USERNAME/public_html/
     
     # Deploy HTML files
     - /bin/cp about.html $DEPLOYPATH
