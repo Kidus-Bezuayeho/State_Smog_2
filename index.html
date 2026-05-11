@@ -100,13 +100,13 @@
                 <p class="section-desc max-w-lg mx-auto">We understand your time is valuable. That's why we strive to make the testing process as convenient as possible.</p>
             </div>
             
-            <div class="about-grid mt-xl">
-                <div class="about-text">
+            <div class="mt-xl">
+                <div class="about-text mx-auto" style="max-width: 800px; text-align: center;">
                     <p class="lead-text font-medium text-lg text-slate-800 mb-lg">At State Smog 2, we provide fast, reliable, and accurate vehicle emission testing services.</p>
                     <p class="text-slate-600 mb-md leading-relaxed">Our certified technicians use state-of-the-art equipment to ensure your vehicle meets all environmental standards, helping you stay compliant and contribute to a cleaner environment.</p>
                     <p class="text-slate-600 mb-xl leading-relaxed">Whether you need a routine inspection or are preparing for vehicle registration, our friendly staff is here to assist you. We offer competitive pricing and a commitment to customer satisfaction.</p>
                     
-                    <div class="feature-grid">
+                    <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); text-align: left;">
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-certificate text-primary"></i></div>
                             <span class="font-medium">Certified Techs</span>
@@ -125,17 +125,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="about-image-wrapper">
-                    <div class="glass-graphic flex-center shadow-xl">
-                        <div class="graphic-circle"></div>
-                        <i class="fas fa-clipboard-check premium-icon"></i>
-                        <div class="experience-badge shadow-lg">
-                            <span class="num text-primary font-bold">100%</span>
-                            <span class="text font-medium">Compliance</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -193,7 +182,7 @@
                         <a href="tel:+13104823319" class="contact-row hover-lift-sm flex items-center gap-md text-white transition">
                             <div class="icon-circle bg-white/10 text-primary w-12 h-12 flex-center rounded-lg shadow-sm"><i class="fas fa-phone text-xl"></i></div>
                             <div>
-                                <span class="label block text-sm opacity-70 font-medium mb-xs">Call Us</span>
+                                <span class="label block text-sm opacity-70 font-medium mb-xs">Phone Number:</span>
                                 <span class="value block text-xl font-semibold">(310) 482-3319</span>
                             </div>
                         </a>
@@ -201,7 +190,7 @@
                         <a href="mailto:statesmog2@gmail.com" class="contact-row hover-lift-sm flex items-center gap-md text-white transition">
                             <div class="icon-circle bg-white/10 text-primary w-12 h-12 flex-center rounded-lg shadow-sm"><i class="fas fa-envelope text-xl"></i></div>
                             <div>
-                                <span class="label block text-sm opacity-70 font-medium mb-xs">Email Us</span>
+                                <span class="label block text-sm opacity-70 font-medium mb-xs">Email Address:</span>
                                 <span class="value block text-lg font-medium">statesmog2@gmail.com</span>
                             </div>
                         </a>
@@ -209,7 +198,7 @@
                         <a href="https://maps.google.com/?q=12630+Washington+Pl,+Los+Angeles,+CA" target="_blank" rel="noopener" class="contact-row hover-lift-sm flex items-center gap-md text-white transition">
                             <div class="icon-circle bg-white/10 text-primary w-12 h-12 flex-center rounded-lg shadow-sm"><i class="fas fa-location-dot text-xl"></i></div>
                             <div>
-                                <span class="label block text-sm opacity-70 font-medium mb-xs">Visit Us</span>
+                                <span class="label block text-sm opacity-70 font-medium mb-xs">Location:</span>
                                 <span class="value block text-md font-medium leading-relaxed">12630 Washington Pl<br>Los Angeles, CA 90066</span>
                             </div>
                         </a>
@@ -245,7 +234,8 @@
                 </div>
             </div>
             <div class="footer-bottom text-center pt-lg border-t border-slate-800 opacity-60 text-sm">
-                <p>&copy; 2024 State Smog 2. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2026</span> State Smog 2. All rights reserved.</p>
+                <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
             </div>
         </div>
     </footer>
