@@ -5,7 +5,7 @@ State Smog 2 is a California-licensed vehicle emission test specialist located i
 ## About the Business
 
 - **Location:** 12630 Washington Place, Los Angeles, CA 90066
-- **Services:** Smog checks for all vehicles, gross polluters, fast and friendly service, walk-ins welcome, pass or free retest, and more.
+- **Services:** Smog checks for all vehicles, gross polluters, fast and friendly service, walk-ins welcome, pass or free retest within 30 days, and more.
 - **Hours:**
   - Mon-Sat: 9 A.M. to 5 P.M.
   - Sun: 10 A.M. to 4 P.M.
@@ -19,10 +19,10 @@ State Smog 2 is a California-licensed vehicle emission test specialist located i
 
 ## Features
 
-- Home page with business overview and contact info
-- Services page detailing offerings
-- About Us section
-- Embedded map for location
+- Single page with booking and tap-to-call up front
+- Price board (placeholder prices are marked `TODO` in `index.html`)
+- How the test works
+- Address, hours and embedded map
 - Responsive design for mobile and desktop
 
 
